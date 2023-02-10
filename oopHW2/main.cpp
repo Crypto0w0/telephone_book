@@ -80,6 +80,25 @@ public:
         extraInfo = extr;
     }
     
+     telBook* operator=(telBook& tb){
+        strcpy(this->name, tb.name);
+        strcpy(this->homeTel, tb.homeTel);
+        strcpy(this->workTel, tb.workTel);
+        strcpy(this->mobileTel, tb.mobileTel);
+        strcpy(this->extraInfo, tb.extraInfo);
+        return this;
+    }
+    
+    telBook* opearator[](int i){
+        if (this[i] == nullptr) return NULL;
+        else return this[i];
+    }
+    
+    ostream& operator<<(ostream& o, const telBook& tb){
+        o << tb.getName() << "\n" << tb.getHomeTel() << "\n" << tb.getWorkTel() << "\n" << tb.getMobTel() << "\n" << tb.getExtraInfo();
+            return o;
+        }
+    
     void init(){
         char buf[20];
         cout << "Enter name: ";
